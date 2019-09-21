@@ -62,13 +62,11 @@ class App {
 
     this.app.use(Auth.validate);
 
-
     this.app.route("/api/v1/users").get(UserController.get);
     this.app.route("/api/v1/users/:id").get(UserController.getById);
     this.app.route("/api/v1/users").post(UserController.create);
     this.app.route("/api/v1/users/:id").put(UserController.update);
     this.app.route("/api/v1/users/:id").delete(UserController.delete);
-
 
   }
 }

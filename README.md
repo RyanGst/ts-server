@@ -1,28 +1,25 @@
-<h1 align="center">Welcome to ts-server 👋</h1>
+<h1 align="center">TS Server - 🌴  </h1>
 <p>
-  <a href="https://www.npmjs.com/package/ts-server">
-    <img alt="Version" src="https://img.shields.io/npm/v/ts-server.svg">
-  </a>
   <a href="https://twitter.com/RyanGostosaum">
     <img alt="Twitter: RyanGostosaum" src="https://img.shields.io/twitter/follow/RyanGostosaum.svg?style=social" target="_blank" />
   </a>
 </p>
 
-> A RestFul api made with TypeScript and love <3
+> A RestFul API made with TypeScript and love <3
 
-## Install
+## Install ⬇ 
 
 ```sh
 npm install
 ```
 
-## Usage
+## Usage ⚙ 
 
 ```sh
 npm run compile && npm start
 ```
 
-## Run tests
+## Run tests 🧐 
 
 ```sh
 npm run test

@@ -9,7 +9,7 @@ class Auth {
         if (token) {
             jwt.verify(token, configs_1.default.secret, function (err, decoded) {
                 if (err) {
-                    return res.json({ success: false, message: 'Falha ao tentar autenticar o token!' });
+                    return res.json({ success: false, message: 'Error when authenticating the token!' });
                 }
                 else {
                     console.log('OK');
@@ -18,7 +18,7 @@ class Auth {
             });
         }
         else {
-            console.log('403');
+            console.log('403 - forbidden');
             return res.status(403).send({
                 success: false,
                 message: '403 - Forbidden'
