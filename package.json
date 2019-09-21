@@ -4,9 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "compile": "tsc -w",
+    "build": "sucrase ./server -d ./dist --transforms typescript,imports",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./dist/server.js"
+    "start": "nodemon ./dist/server.js",
+    "compile": "tsc -w"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +37,7 @@
     "jwt-simple": "^0.5.1",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.0",
+    "sucrase": "^3.10.1",
     "ts-node": "^1.7.2",
     "typescript": "^2.0.6"
   }
