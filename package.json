@@ -7,7 +7,7 @@
     "build": "sucrase ./server -d ./dist --transforms typescript,imports",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./dist/server.js",
-    "compile": "tsc -w"
+    "compile": "tsc"
   },
   "keywords": [],
   "author": "",

@@ -28,6 +28,12 @@ class Auth {
             });
         }
     }
+
+    async create(req, res, user) {
+        const token = await jwt.sign({ username: user.username, userId: user._id }, 'secret', { expiresIn: '10h' })
+
+        return res.json({ success: true, message: 'Auth success', token: token })
+    }
 }
 
 export default new Auth;
