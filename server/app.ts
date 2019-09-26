@@ -59,12 +59,14 @@ class App {
       res.send({ 'result': 'version 0.0.01' })
     });
 
+    //Request
+    //this.app.route("/login")
+
     this.app.route("/api/users").get(Auth.validate, UserController.get);
     this.app.route("/api/users/:id").get(Auth.validate, UserController.getById);
-    this.app.route("/api/users").post(UserController.create);
-    this.app.route("/api/users/:id").put(UserController.update);
-    this.app.route("/api/users/:id").delete(UserController.delete);
-
+    this.app.route("/api/users").post(Auth.validate, UserController.create);
+    this.app.route("/api/users/:id").put(Auth.validate, UserController.update);
+    this.app.route("/api/users/:id").delete(Auth.validate, UserController.delete);
   }
 }
 
