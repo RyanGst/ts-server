@@ -1,6 +1,6 @@
 import AdminRepository from '../repositories/adminRepository';
 import * as httpStatus from 'http-status';
-
+import * as mongoose from 'mongoose';
 
 const sendReponse = function (res, statusCode, data) {
     res.status(statusCode).json({ 'result': data })
@@ -22,7 +22,8 @@ class AdminController {
         }
     }
 
-    create(req, res) {
+    async create(req, res) {
+
         AdminRepository
             .create(req.body)
             .then(menus => sendReponse(res, httpStatus.CREATED, menus))

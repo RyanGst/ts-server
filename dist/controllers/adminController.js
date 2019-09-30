@@ -1,4 +1,12 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const adminRepository_1 = require("../repositories/adminRepository");
 const httpStatus = require("http-status");
@@ -20,10 +28,12 @@ class AdminController {
         }
     }
     create(req, res) {
-        adminRepository_1.default
-            .create(req.body)
-            .then(menus => sendReponse(res, httpStatus.CREATED, menus))
-            .catch(err => console.error.bind(console, `Error ${err}`));
+        return __awaiter(this, void 0, void 0, function* () {
+            adminRepository_1.default
+                .create(req.body)
+                .then(menus => sendReponse(res, httpStatus.CREATED, menus))
+                .catch(err => console.error.bind(console, `Error ${err}`));
+        });
     }
     update(req, res) {
         const _id = { id: req.params.id };

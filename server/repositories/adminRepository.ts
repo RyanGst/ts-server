@@ -1,5 +1,7 @@
 import * as mongoose from 'mongoose';
 import AdminSchema from '../schemas/adminSchema';
+import * as bcrypt from 'bcrypt';
+
 
 class AdminRepository {
     private model;
@@ -14,10 +16,17 @@ class AdminRepository {
 
     async create(user) {
 
-        const check = await this.model.findOne({ 'username': user.username })
+        const userExists = await this.model.findOne({ 'username': user.username })
 
-        if (check) {
-            return
+        if (userExists) {
+            return 'Username already in use'
+        } else {
+            const hash = await bcrypt
+                .hash(user.password, 8)
+
+            user.password = hash
+
+            return this.model.create(user)
         }
     }
 

@@ -8,6 +8,7 @@ const cors = require("cors");
 const auth_1 = require("./config/auth");
 //Route
 const userController_1 = require("./controllers/userController");
+const adminController_1 = require("./controllers/adminController");
 class App {
     constructor() {
         this.app = express();
@@ -42,7 +43,7 @@ class App {
         this.app.route("/").get((req, res) => {
             res.send({ 'result': 'version 0.0.01' });
         });
-        // this.app.route("/login").get()
+        this.app.route("/api/register").post(adminController_1.default.create);
         this.app.route("/api/users").get(auth_1.default.validate, userController_1.default.get);
         this.app.route("/api/users/:id").get(auth_1.default.validate, userController_1.default.getById);
         this.app.route("/api/users").post(auth_1.default.validate, userController_1.default.create);

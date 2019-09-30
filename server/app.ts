@@ -11,6 +11,7 @@ import Auth from './config/auth';
 
 //Route
 import UserController from './controllers/userController';
+import AdminController from './controllers/adminController';
 
 class App {
   public app: express.Application;
@@ -60,7 +61,7 @@ class App {
     });
 
 
-    // this.app.route("/login").get()
+    this.app.route("/api/register").post(AdminController.create)
 
     this.app.route("/api/users").get(Auth.validate, UserController.get);
     this.app.route("/api/users/:id").get(Auth.validate, UserController.getById);
