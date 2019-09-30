@@ -59,8 +59,8 @@ class App {
       res.send({ 'result': 'version 0.0.01' })
     });
 
-    //Request
-    //this.app.route("/login")
+
+    // this.app.route("/login").get()
 
     this.app.route("/api/users").get(Auth.validate, UserController.get);
     this.app.route("/api/users/:id").get(Auth.validate, UserController.getById);

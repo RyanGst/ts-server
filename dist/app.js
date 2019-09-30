@@ -42,11 +42,12 @@ class App {
         this.app.route("/").get((req, res) => {
             res.send({ 'result': 'version 0.0.01' });
         });
+        // this.app.route("/login").get()
         this.app.route("/api/users").get(auth_1.default.validate, userController_1.default.get);
         this.app.route("/api/users/:id").get(auth_1.default.validate, userController_1.default.getById);
-        this.app.route("/api/users").post(userController_1.default.create);
-        this.app.route("/api/users/:id").put(userController_1.default.update);
-        this.app.route("/api/users/:id").delete(userController_1.default.delete);
+        this.app.route("/api/users").post(auth_1.default.validate, userController_1.default.create);
+        this.app.route("/api/users/:id").put(auth_1.default.validate, userController_1.default.update);
+        this.app.route("/api/users/:id").delete(auth_1.default.validate, userController_1.default.delete);
     }
 }
 exports.default = new App();
